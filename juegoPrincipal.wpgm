@@ -1,0 +1,14 @@
+import wollok.game.*
+import juego.*
+import personajes.*
+
+program JuegoSobreviviente {
+	game.title("Sobreviviendo")
+	game.cellSize(20)
+	game.width(25)
+    game.height(25)
+    game.boardGround("Fondo.jpg")
+    game.start()
+	juego.iniciar()
+}  
+
