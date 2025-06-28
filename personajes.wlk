@@ -31,7 +31,6 @@ class Zombie inherits Personaje {
     method morderSobreviviente(sobreviviente){
         sobreviviente.transformarEnZombie()
     }
-
 }
 
 object soldado {
