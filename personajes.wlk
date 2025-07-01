@@ -9,7 +9,7 @@ class Personaje {
 }
 
 object carpincho {
-  var danioAct = 3
+  var property danioAct = 3
   var property vida = 5
   var nivel = 1
   var experiencia = 0
@@ -32,6 +32,10 @@ object carpincho {
     } else {
       vida = (vida - unEnemigo.danioRecibido()).max(0)
     }
+  }
+
+  method mostrarDatos() {
+    game.say(self, "Vida:" + vida + ", ATK:" + danioAct)
   }
 
   method cambiarImagen(unaImagen) {
@@ -63,7 +67,7 @@ object carpincho {
 
 class Enemigo inherits Personaje {
   var property danioBase
-  var property imageFile = "enemigo.jpg"
+  var property imageFile = "enemigo.png"
 
   method danioRecibido() = danioBase
   method image() = imageFile

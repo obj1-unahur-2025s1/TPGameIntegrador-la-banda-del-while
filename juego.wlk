@@ -9,23 +9,7 @@ object juego {
     game.addVisual(termo)
     game.addVisual(yerba)
     game.addVisual(enemigo)
-    
-    keyboard.up().onPressDo {
-    carpincho.mover(0, -1)
-  }
 
-  keyboard.down().onPressDo {
-    carpincho.mover(0, 1)
+  keyboard.shift().onPressDo ({carpincho.mostrarDatos()})
   }
-
-  keyboard.left().onPressDo {
-    carpincho.mover(-1, 0)
-  }
-
-  keyboard.right().onPressDo {
-    carpincho.mover(1, 0)
-  }
-  }
-
-  
 }

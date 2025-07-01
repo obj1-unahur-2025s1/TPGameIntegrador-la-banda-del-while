@@ -3,7 +3,7 @@ import wollok.game.*
 
 object yerba {
   const property position = game.at(6, 8)
-  method image() = "yerba.jpg"
+  method image() = "yerba.png"
 
   method recoger() {
     game.onCollideDo(self, {carpincho.recogerUn(self)})
@@ -14,7 +14,7 @@ object yerba {
 
 object termo {
   const property position = game.at(17, 10)
-  method image() = "termo.jpg"
+  method image() = "termo.png"
 
   method recoger() {
     game.onCollideDo(self, {carpincho.recogerUn(self)})
