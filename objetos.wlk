@@ -4,21 +4,29 @@ import wollok.game.*
 object yerba {
   const property position = game.at(6, 8)
   method image() = "yerba.png"
-
-  method recoger() {
-    game.onCollideDo(self, {carpincho.recogerUn(self)})
-    game.removeVisual(self)
+  method esEnemigo() = false
+  method esRecogido() {
     game.say(carpincho, "¡Que rica yerba pa!")
+    game.removeVisual(self)
   }
 }
 
 object termo {
   const property position = game.at(17, 10)
   method image() = "termo.png"
-
-  method recoger() {
-    game.onCollideDo(self, {carpincho.recogerUn(self)})
-    game.removeVisual(self)
+  method esEnemigo() = false
+  method esRecogido() {
     game.say(carpincho, "Mi compañero, siempre a mi lado")
+    game.removeVisual(self)
+  }
+}
+
+object donSatur {
+  const property position = game.at(25, 15)
+  method image() = "donSatur.png"
+  method esEnemigo() = false
+  method esRecogido() {
+    game.say(carpincho, "¡Que buen bizcochito!")
+    game.removeVisual(self)
   }
 }
