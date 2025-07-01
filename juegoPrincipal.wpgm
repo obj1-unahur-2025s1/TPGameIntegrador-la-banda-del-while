@@ -3,11 +3,11 @@ import juego.*
 import personajes.*
 
 program JuegoSobreviviente {
-	game.title("Sobreviviendo")
-	game.cellSize(20)
-	game.width(25)
-    game.height(25)
-    game.boardGround("Fondo.jpg")
+	game.title("La gran aventura del Carpincho")
+	game.cellSize(40)
+	game.width(48)
+    game.height(27)
+    game.boardGround("fondo.png")
     game.start()
 	juego.iniciar()
 }  
