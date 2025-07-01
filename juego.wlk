@@ -3,10 +3,12 @@ import wollok.game.*
 import personajes.*
 
 object juego {
+  const enemigo = new Enemigo(danioBase = 3, vida = 5, position = game.at(6, 5))
   method iniciar() {
     game.addVisualCharacter(carpincho)
-    game.addVisualCharacter(termo)
-    game.addVisualCharacter(yerba)
+    game.addVisual(termo)
+    game.addVisual(yerba)
+    game.addVisual(enemigo)
     
     keyboard.up().onPressDo {
     carpincho.mover(0, -1)

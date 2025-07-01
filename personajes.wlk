@@ -16,8 +16,9 @@ object carpincho {
   var expParaSubir = 3
   var property position = game.at(1, 11)
   const items = []
+  var image = "carpincho.png"
 
-  method image() = "carpincho.png"
+  method image() = image
 
   method pelear(unEnemigo) {
     if (danioAct >= unEnemigo.vida()) {
@@ -25,10 +26,16 @@ object carpincho {
       if (experiencia >= expParaSubir) {
         self.subirDeNivel()
       }
+      self.cambiarImagen("carpinchoATK.png")
+      game.schedule(3000, {self.cambiarImagen("carpincho.png")})
       game.removeVisual(unEnemigo)
     } else {
       vida = (vida - unEnemigo.danioRecibido()).max(0)
     }
+  }
+
+  method cambiarImagen(unaImagen) {
+    image = unaImagen
   }
 
   method subirDeNivel() {
@@ -50,6 +57,8 @@ object carpincho {
   method mover(x, y) {
     position = position.right(x).down(y)
   }
+
+  
 }
 
 class Enemigo inherits Personaje {
