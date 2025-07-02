@@ -24,8 +24,33 @@ object carpincho {
   var property position = game.at(1, 11)
   const items = []
   var image = "carpincho.png"
+  var gameOver = false
+  
+  method estaMuerto() = vida <= 0
 
   method image() = image
+
+  method movimiento(x, y) {
+    if(not gameOver) {
+      position = position.right(x).down(y)
+    }
+
+    keyboard.w().onPressDo(if (gameOver) self.movimiento(0, -1))
+    keyboard.s().onPressDo(if (gameOver) self.movimiento(0, 1))
+    keyboard.a().onPressDo(if (gameOver) self.movimiento(-1, 0))
+    keyboard.d().onPressDo(if (gameOver) self.movimiento(1, 0))
+  } 
+
+  method verificarGameOver() {
+    if(self.estaMuerto()) {
+      self.gameOver()
+    }
+  }
+
+  method gameOver() {
+    game.say(self, "Game Over")
+    gameOver = true
+  }
 
   method pelear(unEnemigo) {
     if (not superCarpincho) {
@@ -126,7 +151,7 @@ class Luciernaga inherits Enemigo {
   }
 }
   method morir() {
-    if(self.vida() == 0) {
+    if(self.estaMuerto()) {
       game.removeTickEvent("movimiento")
     }
   } 
