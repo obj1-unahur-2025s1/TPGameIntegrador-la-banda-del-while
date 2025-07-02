@@ -3,7 +3,7 @@ import wollok.game.*
 
 class Objeto {
   const nombre
-  const esEnemigo
+  const esEnemigo = false
   const frase
   const property posicion 
   method image() = nombre + ".png"

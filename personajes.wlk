@@ -18,6 +18,8 @@ class Personaje {
 }
 
 object carpincho {
+  var estado =  "carpincho" 
+  var accion = ""
   var property danioAct = 3
   var property vida = 5
   var superCarpincho = false
@@ -28,13 +30,11 @@ object carpincho {
   method kills() = kills
   var property position = game.at(1, 11)
   const items = []
-  var image = "carpincho.png"
   var gameOver = false
   
   method estaMuerto() = vida <= 0
 
-  method image() = image
-
+  method image() = estado + accion + ".png"
   method movimiento(x, y) {
     if(not gameOver) {
       position = position.right(x).down(y)
@@ -96,14 +96,8 @@ method verificarGameOver() {
   
 
   method pelear(unEnemigo) {
-    if (not superCarpincho) {
-      self.cambiarImagen("carpinchoATK.png")
-      game.schedule(3000, {self.cambiarImagen("carpincho.png")})
-    }
-    else{
-      self.cambiarImagen("carpinchoSuperATK.png")
-      game.schedule(3000, {self.cambiarImagen("carpinchoSuper.png")})
-    }
+    accion = "ATK"
+    game.schedule(3000, { accion = "" })
     if (danioAct >= unEnemigo.vida()) {
       vida = (vida - unEnemigo.danioRecibido()).max(0)
       experiencia += 1
@@ -122,19 +116,15 @@ method verificarGameOver() {
   method activarSupercarpincho() {
     if (items.size() == 3) {
       superCarpincho = true
-      image = "carpinchoSuper.png"
+      estado = "carpinchoSuper"
       danioAct = danioAct * 2
-      game.schedule(10000, {self.cambiarImagen("carpincho.png") danioAct = danioAct / 2})
+      game.schedule(10000, {estado = "carpincho" danioAct = danioAct / 2})
       items.clear()
     }
   }
 
   method mostrarDatos() {
     game.say(self, "Vida:" + vida + ", ATK:" + danioAct + "Tengo:" + items)
-  }
-
-  method cambiarImagen(unaImagen) {
-    image = unaImagen
   }
 
   method subirDeNivel() {
