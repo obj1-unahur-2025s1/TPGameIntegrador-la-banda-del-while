@@ -2,15 +2,13 @@ import wollok.game.*
 import juego.*
 import personajes.*
 import menu.*
-
+// El juego despues del game over automaticamente cambia el valor de las celdas y el juego se vuelve injugable
 program JuegoSobreviviente {
 	game.title("La gran aventura del Carpincho")
-	game.cellSize(40)
-	game.width(58)
-    game.height(27)
+	game.cellSize(30)
+	game.width(24)
+    game.height(20)
     game.boardGround("fondo.png")
     game.start()
-	//juego.iniciar()
 	menu.mostrarMenu()
 }  
-

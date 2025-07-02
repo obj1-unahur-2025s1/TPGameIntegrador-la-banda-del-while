@@ -3,6 +3,7 @@ import wollok.game.*
 
 class Objeto {
   const nombre
+  method nombre() = nombre
   const esEnemigo = false
   const frase
   const property position 
@@ -12,6 +13,9 @@ class Objeto {
   method esRecogido() {
     game.say(carpincho, frase)
     game.removeVisual(self)
-    //game.sound(self.sonido()).play() agregar cuando coloquen el sonido porque rompe
+    game.sound(self.sonido()).play() 
+  }
+  method resetear() {
+    
   }
 }
