@@ -28,7 +28,7 @@ object carpincho {
   method image() = image
 
   method pelear(unEnemigo) {
-    if (not superCarpincho){
+    if (not superCarpincho) {
       self.cambiarImagen("carpinchoATK.png")
       game.schedule(3000, {self.cambiarImagen("carpincho.png")})
     }
@@ -52,7 +52,7 @@ object carpincho {
 
 
   method activarSupercarpincho() {
-    if (items.size() == 3){
+    if (items.size() == 3) {
       superCarpincho = true
       image = "carpinchoSuper.png"
       danioAct = danioAct * 2
@@ -76,6 +76,7 @@ object carpincho {
     expParaSubir += 1
     vida = 5
     game.say(self, "Nivel" + nivel + "Poder y salud aumentados!")
+    game.sound("levelUp.mp3").play()
   }
 
   method sufrirVeneno() {
@@ -124,6 +125,11 @@ class Luciernaga inherits Enemigo {
     danioBase
   }
 }
+  method morir() {
+    if(self.vida() == 0) {
+      game.removeTickEvent("movimiento")
+    }
+  } 
 }
 
 class Culebra inherits Enemigo {
@@ -144,7 +150,7 @@ class Culebra inherits Enemigo {
 
 class Boss inherits Enemigo {
   method aparecer() {
-    if(carpincho.kills() >= 3){
+    if(carpincho.kills() >= 3) {
       game.addVisual(juego.boss())
       game.removeTickEvent("boss")
     }

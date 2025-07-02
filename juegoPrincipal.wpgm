@@ -1,14 +1,16 @@
 import wollok.game.*
 import juego.*
 import personajes.*
+import menu.*
 
 program JuegoSobreviviente {
 	game.title("La gran aventura del Carpincho")
 	game.cellSize(40)
-	game.width(48)
+	game.width(58)
     game.height(27)
     game.boardGround("fondo.png")
     game.start()
-	juego.iniciar()
+	//juego.iniciar()
+	menu.mostrarMenu()
 }  
 

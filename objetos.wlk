@@ -8,6 +8,7 @@ object yerba {
   method esRecogido() {
     game.say(carpincho, "¡Que rica yerba pa!")
     game.removeVisual(self)
+    game.sound("Yerbita.mp3").play()
   }
 }
 
@@ -18,6 +19,7 @@ object termo {
   method esRecogido() {
     game.say(carpincho, "Mi compañero, siempre a mi lado")
     game.removeVisual(self)
+    game.sound("termito.mp3").play()
   }
 }
 
@@ -28,5 +30,6 @@ object donSatur {
   method esRecogido() {
     game.say(carpincho, "¡Que buen bizcochito!")
     game.removeVisual(self)
+    game.sound("donSatur.mp3").play()
   }
 }
