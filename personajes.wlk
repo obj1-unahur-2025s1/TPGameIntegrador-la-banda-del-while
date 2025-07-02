@@ -5,6 +5,7 @@
 import wollok.game.*
 import objetos.*
 import juego.*
+import modelos.*
 
 
 class Personaje {
@@ -78,12 +79,12 @@ method verificarGameOver() {
     game.sound("gameOver.mp3").play() // Asumiendo que tienes un sonido para Game Over
     
     // Opcional: Detener todos los ticks del juego para pausar
-    game.removeAllTickEvents()
+    //game.removeAllTickEvents()
     
     // Opcional: Mostrar una pantalla de "Game Over" o un botón de reinicio
     // Por ejemplo:
-    game.addVisual(imagenGameOver) 
-    keyboard.disable() 
+    //game.addVisual(imagenGameOver) 
+    //keyboard.disable() 
     // Desactiva todas las interacciones de teclado
   }
 

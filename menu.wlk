@@ -1,4 +1,5 @@
 import juego.*
+import modelos.*
 import wollok.game.*
 
 
@@ -32,14 +33,11 @@ object menu {
   }
 }
 
-object fondoMenu {
-  var property position = game.at(5, 0)
-  method image() = "fondoMenu (2).png"
-  method zIndex() = -10
-}
+class Fondo {
+  const property position
+  const imagen
+  const index
 
-object botonJugar {
-  var property position = game.at(23, -3)
-  method image() = "botonJugar.png"
-  method zIndex() = -10
+  method image() = imagen
+  method zIndex() = index
 }

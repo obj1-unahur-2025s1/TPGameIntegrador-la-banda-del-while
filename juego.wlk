@@ -7,13 +7,10 @@
 import objetos.*
 import wollok.game.*
 import personajes.*
+import modelos.*
 
 
 object juego {
-  const enemigo = new Enemigo(danioBase = 1, vida = 5, position = game.at(6, 5))
-  const firefly = new Luciernaga(danioBase = 2, vida = 5, position = game.center())
-  const culebrita =  new Culebra(danioBase = 3, vida = 3, position = game.at(11,18))
-  const boss = new Boss(danioBase = 6, vida = 20, position = game.center())
   method boss() = boss
   method iniciar() {
     game.addVisualCharacter(carpincho)
