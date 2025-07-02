@@ -1,3 +1,7 @@
+// personajes.wlk
+// personajes.wlk
+// personajes.wlk
+// personajes.wlk
 import wollok.game.*
 import objetos.*
 import juego.*
@@ -41,6 +45,7 @@ object carpincho {
     keyboard.d().onPressDo(if (gameOver) self.movimiento(1, 0))
   } 
 
+  /*
   method verificarGameOver() {
     if(self.estaMuerto()) {
       self.gameOver()
@@ -51,6 +56,43 @@ object carpincho {
     game.say(self, "Game Over")
     gameOver = true
   }
+  */
+
+
+
+  // Método que verifica si el carpincho está muerto y activa el Game Over
+method verificarGameOver() {
+  if (self.estaMuerto()) {
+    self.activarGameOver()
+  }
+}
+
+
+  // Nuevo método para manejar la lógica de "Game Over"
+  method activarGameOver() {
+    // Evita que se active múltiples veces
+    //if(gameOver){return}
+    
+    gameOver = true
+    game.say(self, "¡Game Over! El carpincho no pudo más.")
+    game.sound("gameOver.mp3").play() // Asumiendo que tienes un sonido para Game Over
+    
+    // Opcional: Detener todos los ticks del juego para pausar
+    game.removeAllTickEvents()
+    
+    // Opcional: Mostrar una pantalla de "Game Over" o un botón de reinicio
+    // Por ejemplo:
+    game.addVisual(imagenGameOver) 
+    keyboard.disable() 
+    // Desactiva todas las interacciones de teclado
+  }
+
+  
+  
+  
+  
+  
+  
 
   method pelear(unEnemigo) {
     if (not superCarpincho) {

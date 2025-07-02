@@ -1,6 +1,13 @@
+// juego.wlk
+// juego.wlk
+// juego.wlk
+// juego.wlk
+// juego.wlk
+// juego.wlk
 import objetos.*
 import wollok.game.*
 import personajes.*
+
 
 object juego {
   const enemigo = new Enemigo(danioBase = 1, vida = 5, position = game.at(6, 5))
@@ -22,4 +29,5 @@ object juego {
     keyboard.space().onPressDo({carpincho.activarSupercarpincho()})
     game.onTick(2000, "boss",{boss.aparecer()})
   }
+
 }
