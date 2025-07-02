@@ -5,10 +5,9 @@ class Objeto {
   const nombre
   const esEnemigo = false
   const frase
-  const property posicion 
+  const property position 
   method image() = nombre + ".png"
   method sonido() = nombre + ".mp3"
-  method position() = posicion
   method esEnemigo() = esEnemigo
   method esRecogido() {
     game.say(carpincho, frase)

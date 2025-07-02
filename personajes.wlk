@@ -18,8 +18,8 @@ class Personaje {
 }
 
 object carpincho {
-  var estado =  "carpincho" 
-  var accion = ""
+  var estado =  "carpincho" // RECONOCE UN ESTADO QUE ES CARPINCHO O SUOPERCARPINCHO
+  var accion = "" // RECONOCE UNA ACCION QUE ES ATK O NADA
   var property danioAct = 3
   var property vida = 5
   var superCarpincho = false
@@ -34,7 +34,7 @@ object carpincho {
   
   method estaMuerto() = vida <= 0
 
-  method image() = estado + accion + ".png"
+  method image() = estado + accion + ".png" // DADO UN ESTADO Y UNA ACCION, DEVUELVE LA IMAGEN CORRESPONDIENTE CON EL PNG AL FINAL carpincho.png
   method movimiento(x, y) {
     if(not gameOver) {
       position = position.right(x).down(y)
@@ -96,8 +96,8 @@ method verificarGameOver() {
   
 
   method pelear(unEnemigo) {
-    accion = "ATK"
-    game.schedule(3000, { accion = "" })
+    accion = "ATK" // el estado camvia a ATK, el str se le suma en el method image()
+    game.schedule(3000, { accion = "" }) // luego de 3 segundos vuelve a la accion vacia
     if (danioAct >= unEnemigo.vida()) {
       vida = (vida - unEnemigo.danioRecibido()).max(0)
       experiencia += 1
@@ -116,7 +116,7 @@ method verificarGameOver() {
   method activarSupercarpincho() {
     if (items.size() == 3) {
       superCarpincho = true
-      estado = "carpinchoSuper"
+      estado = "carpinchoSuper" // transforma el carpincho en supercarpincho modificando el estado
       danioAct = danioAct * 2
       game.schedule(10000, {estado = "carpincho" danioAct = danioAct / 2})
       items.clear()
