@@ -203,6 +203,7 @@ class Boss inherits Enemigo { //La Radiance, el jefe final, definitivamente no r
   }
   override method resetear(){ //Regenera la vida de la Radiance
     vida =  20
+    noAparecio = false
   }
   override method image() = "boss.png"
 }
