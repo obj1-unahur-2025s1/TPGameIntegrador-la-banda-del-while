@@ -1,4 +1,4 @@
-import TPGameIntegrador-la-banda-del-while.personajes.*
+import personajes.*
 import juego.*
 import modelos.*
 import wollok.game.*

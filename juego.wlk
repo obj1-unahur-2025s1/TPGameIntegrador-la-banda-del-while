@@ -1,4 +1,4 @@
-import TPGameIntegrador-la-banda-del-while.sfx.*
+import sfx.*
 import objetos.*
 import wollok.game.*
 import personajes.*

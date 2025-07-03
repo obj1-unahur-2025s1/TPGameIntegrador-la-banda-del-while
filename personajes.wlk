@@ -1,4 +1,4 @@
-import TPGameIntegrador-la-banda-del-while.sfx.*
+import sfx.*
 // personajes.wlk
 // personajes.wlk
 // personajes.wlk
