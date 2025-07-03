@@ -1,4 +1,5 @@
 Juego: "Carpincho Island"
+Programado por: Nicolas Blanco, Lucas Carrasco, Bruno Gisondo, Martin Maldonado, Ivan Barros y Franco Nebuloni 
 
 Concepto & Objetivo:
 Sos un Carpincho barado en la isla Carpincho, tu misión es recuperar tu mate y don Satur sin ser derrotado por los enemigos, además de desafiar al jefe divino quien no le gusta que tomes mates en la isla.
