@@ -75,7 +75,7 @@ object menu {
   method resetearJuego() {
     juego.todo().forEach({a => a.resetear()})
     juego.todo().forEach({a => game.removeVisual(a)})
-  }
+  } //Problemas con la grilla al resetear, no estamos seguros de porque ya que no hacemos cambios directos.
 }
 
 class Fondo {

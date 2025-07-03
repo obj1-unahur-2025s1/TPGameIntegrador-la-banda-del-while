@@ -1,10 +1,4 @@
 import TPGameIntegrador-la-banda-del-while.sfx.*
-// juego.wlk
-// juego.wlk
-// juego.wlk
-// juego.wlk
-// juego.wlk
-// juego.wlk
 import objetos.*
 import wollok.game.*
 import personajes.*

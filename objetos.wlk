@@ -17,5 +17,6 @@ class Objeto {
   }
   method resetear() {
     
-  }
+  } //El método está vacio ya que los objetos no cambian realmente, el reset en general lo único que debería hacer es 
+  // Restaurarle la vida a los enemigos o reiniciar las características del Carpincho, los objetos ya de por si se reinician con el juego.
 }

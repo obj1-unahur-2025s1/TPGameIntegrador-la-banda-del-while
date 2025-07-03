@@ -10,7 +10,7 @@ import modelos.*
 import menu.*
 
 
-class Personaje {
+class Personaje { // La clase que usarán la mayoría de Personajes
   var property vida
   var property position
   method restarVida(valor){
@@ -19,7 +19,7 @@ class Personaje {
   method estaMuerto() = vida <= 0
 }
 
-object carpincho {
+object carpincho { // El jugador
   var estado =  "carpincho" // RECONOCE UN ESTADO QUE ES CARPINCHO O SUOPERCARPINCHO
   var accion = "" // RECONOCE UNA ACCION QUE ES ATK O NADA
   var property danioAct = 3
@@ -40,21 +40,6 @@ object carpincho {
       position = position.right(x).down(y)
   } 
 
-  /*
-  method verificarGameOver() {
-    if(self.estaMuerto()) {
-      self.gameOver()
-    }
-  }
-
-  method gameOver() {
-    game.say(self, "Game Over")
-    gameOver = true
-  }
-  */
-
-
-
   // Método que verifica si el carpincho está muerto y activa el Game Over
 method verificarFinal() {
   if (self.estaMuerto()) {
@@ -65,7 +50,7 @@ method verificarFinal() {
   }
 }
 
-method resetear() {
+method resetear() { //Reinicia las estadísticas del Carpincho
     kills = 0
     position = game.at(1, 8)
     items.clear()
@@ -77,8 +62,8 @@ method resetear() {
     expParaSubir = 1
 }
 
-  method pelear(unEnemigo) {
-    accion = "ATK" // el estado camvia a ATK, el str se le suma en el method image()
+  method pelear(unEnemigo) { //El carpincho entra en combate cuando toca a un Enemigo
+    accion = "ATK" // el estado cambia a ATK, el str se le suma en el method image()
     game.schedule(2000, { accion = "" }) // luego de 2 segundos vuelve a la accion vacia
     game.sound("japish.mp3").play()
     if (danioAct >= unEnemigo.vida()) {
@@ -99,7 +84,7 @@ method resetear() {
   }
 
 
-  method activarSupercarpincho() {
+  method activarSupercarpincho() { //Transforma al carpincho En SuperCarpincho si es que tiene los 3 items
     if (items.size() == 3) {
       superCarpincho = true
       game.sound("superCarpincho.mp3").play()
@@ -110,11 +95,11 @@ method resetear() {
     }
   }
 
-  method mostrarDatos() {
+  method mostrarDatos() { //Indica las stats y objetos del carpincho
     game.say(self, "Vida:" + vida + ", ATK:" + danioAct + "Tengo:" + items.map({a => a.nombre()}))
   }
 
-  method subirDeNivel() {
+  method subirDeNivel() { //Sube al carpincho de nivel
     nivel += 1
     experiencia = 0
     danioAct += 1
@@ -123,14 +108,14 @@ method resetear() {
     game.sound("levelUp.mp3").play()
   }
 
-  method sufrirVeneno() {
+  method sufrirVeneno() { //El carpincho pierde atk por 2 segundos al enfrentarse con la culebra
       danioAct = danioAct - 1
       game.schedule(2000, {danioAct = danioAct + 1})
       game.sound("culebra.mp3").play()
   }
 
 
-  method recoger(objeto) {
+  method recoger(objeto) { //El carpincho recoge un objeto cuando le pasa por arriba
     items.add(objeto)
     objeto.esRecogido()
     if(items.size() == 3){
@@ -139,30 +124,30 @@ method resetear() {
   }
 }
 
-class Enemigo inherits Personaje {
+class Enemigo inherits Personaje { //El enemigo estándar
   var property danioBase
   var property imageFile = "enemigo.png"
 
-  method esEnemigo() = true
-  method danioRecibido() = danioBase
+  method esEnemigo() = true //Indica si es o no un enemigo, recurso polimórfico para recoger
+  method danioRecibido() = danioBase //El daño que provoca el jefe
   method image() = imageFile
-  method resetear(){
+  method resetear(){ //En un reset, reinicia la vida del jefe
     vida = 5
   }
-   method mostrarDatos() {
+   method mostrarDatos() { //Muestra la vida del jefe
     game.say(self, "Vida:" + vida)
   }
 }
 
-class Luciernaga inherits Enemigo {
+class Luciernaga inherits Enemigo { //La luciernaga, una subclase de enemigo que vuela y esquiva
   var contador = 0
   override method image() = "luciernaga.png"
-  method movete() {
+  method movete() { //Hace que la luciernaga se pueda mover
     const x = 0.randomUpTo(game.width()).truncate(0)
     const y = 0.randomUpTo(game.height()).truncate(0)
     position = game.at(x,y)
   }
-  override method danioRecibido() {
+  override method danioRecibido() { //Determina la posibilidad que la luciernaga esquive
     contador += 1
     return 
     if (contador % 3 == 0) {
@@ -172,32 +157,32 @@ class Luciernaga inherits Enemigo {
     danioBase
   }
 }
-  method morir() {
+  method morir() { //Al morir, detiene el concepto de movimiento de la luciernaga
     if(self.estaMuerto()) {
       game.removeTickEvent("movimiento")
     }
   } 
 }
 
-class Culebra inherits Enemigo {
+class Culebra inherits Enemigo { //La culebra, una subclase de enemigo que envenena
   var venenoActivo = false
   override method image() = "culebra.png"
-  override method danioRecibido() {
+  override method danioRecibido() { //El daño de la culebra 
     venenoActivo = true
-    return danioBase
+    return danioBase 
   }
-    method movimiento(x, y) {
+    method movimiento(x, y) { 
       position = position.right(x).down(y)
   } 
 
-    method movete() {
+    method movete() { //Hace que la serpiente se mueva en rectangulos, para acertar dominancia
     game.schedule(700,{self.movimiento(+2, 0)})
     game.schedule(1400,{self.movimiento(0, +2)})
     game.schedule(2100,{self.movimiento(-2, 0)})
     game.schedule(2800,{self.movimiento(0, -2)})
     }
 
-  method efectoVeneno(carpincho) {
+  method efectoVeneno(carpincho) { //El efecto del veneno
     if (venenoActivo) {
       carpincho.sufrirVeneno()
       game.say(carpincho, "¡El veneno de la culebra me afecto!")
@@ -205,9 +190,9 @@ class Culebra inherits Enemigo {
   }
 }
 
-class Boss inherits Enemigo {
+class Boss inherits Enemigo { //La Radiance, el jefe final, definitivamente no robada de Hollow Knight
   var noAparecio = true
-  method aparecer() {
+  method aparecer() { //Permite a la Radiance spawnear
     if(carpincho.kills() >= 3 and noAparecio) {
       noAparecio = false
       game.addVisual(juego.boss())
@@ -216,7 +201,7 @@ class Boss inherits Enemigo {
       musicaDeBoss.empezarMusica()
     }
   }
-  override method resetear(){
+  override method resetear(){ //Regenera la vida de la Radiance
     vida =  20
   }
   override method image() = "boss.png"
