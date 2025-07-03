@@ -8,9 +8,10 @@ import menu.*
 object juego {
   const property todo = [termo, yerba, donSatur, enemigo, firefly, culebrita, carpincho, boss]
   method boss() = boss
+  var carpinchoAparecio = false
   method iniciar() {
     menu.gameOver(false)
-    game.addVisualCharacter(carpincho)
+    self.aparecerCarpincho()
     game.addVisual(termo)
     game.addVisual(yerba)
     game.addVisual(donSatur)
@@ -23,5 +24,14 @@ object juego {
     keyboard.space().onPressDo({carpincho.activarSupercarpincho()})
     game.schedule(2000, {game.say(carpincho, "Con SHIFT puedo ver mis estadisticas")})
     game.onTick(3000, "movimiento", { firefly.movete() culebrita.movete()})
+  }
+  method aparecerCarpincho() {
+    if (carpinchoAparecio){
+      game.addVisual(carpincho)
+    }
+    else{
+      game.addVisualCharacter(carpincho)
+      carpinchoAparecio = true
+    }
   }
 }
