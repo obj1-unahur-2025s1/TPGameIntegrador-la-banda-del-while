@@ -9,7 +9,7 @@ const botonJugar = new Fondo(position = game.at(9, 0),imagen = "botonJugar2.png"
 const gameOverImagen = new Fondo(position = game.at(7,6),imagen = "GameOver.png", index = -10)
 const youWinImagen = new Fondo(position = game.at(6,5), imagen = "youWin.png", index = -10)
 
-//Objetos // PARA DECIRLE AL PROFE SON INSTANCIAS DE LA CLASE OBJETO
+//Objetos // INSTANCIAS DE LA CLASE OBJETO
 const yerba = new Objeto(nombre = "Yerba", position = game.at(6, 8), frase = "¡Que rica yerba pa!") 
 const termo = new Objeto(nombre = "Termo",  position = game.at(17, 10), frase = "Mi compañero, siempre a mi lado")
 const donSatur = new Objeto(nombre = "DonSatur", position = game.at(8, 15), frase = "¡Que buen bizcochito!")

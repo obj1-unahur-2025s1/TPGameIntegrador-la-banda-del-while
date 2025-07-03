@@ -1,8 +1,4 @@
 import sfx.*
-// personajes.wlk
-// personajes.wlk
-// personajes.wlk
-// personajes.wlk
 import wollok.game.*
 import objetos.*
 import juego.*
@@ -22,6 +18,7 @@ class Personaje { // La clase que usarán la mayoría de Personajes
 object carpincho { // El jugador
   var estado =  "carpincho" // RECONOCE UN ESTADO QUE ES CARPINCHO O SUOPERCARPINCHO
   var accion = "" // RECONOCE UNA ACCION QUE ES ATK O NADA
+  var direc = "Der" // RECONOCE LA DIRECCION A DONDE MIRA CON DER O IZQ
   var property danioAct = 3
   var property vida = 5
   var superCarpincho = false
@@ -35,8 +32,15 @@ object carpincho { // El jugador
   
   method estaMuerto() = vida <= 0
 
-  method image() = estado + accion + ".png" // DADO UN ESTADO Y UNA ACCION, DEVUELVE LA IMAGEN CORRESPONDIENTE CON EL PNG AL FINAL carpincho.png
+  method image() = direc + estado + accion + ".png" // DADO UN ESTADO Y UNA ACCION, DEVUELVE LA IMAGEN CORRESPONDIENTE CON EL PNG AL FINAL carpincho.png
+  
   method movimiento(x, y) {
+      if (x == +1){
+        direc = "Der"
+      }
+      if (x == -1){
+        direc = "Izq"
+      }
       position = position.right(x).down(y)
   } 
 
@@ -141,6 +145,10 @@ class Enemigo inherits Personaje { //El enemigo estándar
 
 class Luciernaga inherits Enemigo { //La luciernaga, una subclase de enemigo que vuela y esquiva
   var contador = 0
+  override method resetear(){
+    vida = 14
+    contador = 0
+  }
   override method image() = "luciernaga.png"
   method movete() { //Hace que la luciernaga se pueda mover
     const x = 0.randomUpTo(game.width()).truncate(0)

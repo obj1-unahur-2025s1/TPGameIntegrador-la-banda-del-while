@@ -2,7 +2,8 @@ import wollok.game.*
 import juego.*
 import personajes.*
 import menu.*
-// El juego despues del game over automaticamente cambia el valor de las celdas y el juego se vuelve injugable
+
+// !!!!!!!!! FALTA: HUD CON VIDA Y OBJETOS, MUSICA EN PANTALLA DE INICIO Y SACAR LOS SAYS
 program JuegoSobreviviente {
 	game.title("La gran aventura del Carpincho")
 	game.cellSize(30)

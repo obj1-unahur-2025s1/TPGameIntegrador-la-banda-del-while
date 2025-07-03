@@ -45,10 +45,9 @@ object menu {
       musicaDeBoss.pararMusica()
     }
   }
-    // Nuevo método para manejar la lógica de "Game Over"
+  
   method activarGameOver() {
     // Evita que se active múltiples veces
-    //if(gameOver){return}
     game.removeTickEvent("movimiento")
     gameOver = true
     self.resetearJuego()
@@ -75,7 +74,7 @@ object menu {
   method resetearJuego() {
     juego.todo().forEach({a => a.resetear()})
     juego.todo().forEach({a => game.removeVisual(a)})
-  } //Problemas con la grilla al resetear, no estamos seguros de porque ya que no hacemos cambios directos.
+  } 
 }
 
 class Fondo {
