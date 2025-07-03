@@ -30,3 +30,13 @@ Niveles:
 
 El juego solo dispone de un nivel debido a las complicaciones que tuvimos para programar el mismo, el nivel trascurre en los prados de Carpincho Island, un lugar perfecto para plantarse a mirar el sol y comer unas ricas Don Satur.
 
+
+Instrucciones: 
+
+Teclas arriba, abajo, izquierda y derecha = Movimiento del Carpincho
+
+Shift = Ver estadisticas 
+
+Espacio = Transformarse (Requiere los 3 items legendarios)
+
+Enter = Inicia el juego
