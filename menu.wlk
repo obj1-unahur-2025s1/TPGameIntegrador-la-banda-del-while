@@ -4,6 +4,7 @@ import modelos.*
 import wollok.game.*
 import objetos.*
 import sfx.*
+import interfaz.*
 
 
 object menu {
@@ -48,24 +49,27 @@ object menu {
   
   method activarGameOver() {
     // Evita que se active múltiples veces
+    const sonido = new Sound(file = "gameOver.mp3")
     game.removeTickEvent("movimiento")
     gameOver = true
     self.resetearJuego()
     self.pararMusica()
-    game.sound("gameOver.mp3").play()
+    barraVidaCarpincho.sacar()
+    sonido.play()
     game.addVisual(gameOverImagen)
-    game.schedule(6000, {self.mostrarMenu()})
+    game.schedule(6000, {sonido.stop() self.mostrarMenu()})
   }
 
   method activarFinal() {
+    const sonido = new Sound(file = "youWin.mp3")
     game.removeTickEvent("movimiento")
     self.resetearJuego()
     self.pararMusica()
-    game.sound("youWin.mp3").play()
+    barraVidaCarpincho.sacar()
+    sonido.play()
     game.addVisual(youWinImagen)
-    game.schedule(6000, {self.mostrarMenu()})
+    game.schedule(6000, {self.mostrarMenu() sonido.stop()}) 
   }
-
 
   method gameOver(valor) {
     gameOver = valor

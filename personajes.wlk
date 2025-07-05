@@ -4,6 +4,7 @@ import objetos.*
 import juego.*
 import modelos.*
 import menu.*
+import interfaz.*
 
 
 class Personaje { // La clase que usarán la mayoría de Personajes
@@ -85,8 +86,9 @@ method resetear() { //Reinicia las estadísticas del Carpincho
       unEnemigo.restarVida(danioAct)
       self.verificarFinal()
     }
+    barraVidaCarpincho.mostrarVida(vida)
+    
   }
-
 
   method activarSupercarpincho() { //Transforma al carpincho En SuperCarpincho si es que tiene los 3 items
     if (items.size() == 3) {
@@ -95,7 +97,6 @@ method resetear() { //Reinicia las estadísticas del Carpincho
       estado = "carpinchoSuper" // transforma el carpincho en supercarpincho modificando el estado
       danioAct = danioAct * 2
       game.schedule(8000, {estado = "carpincho" danioAct = danioAct / 2})
-      items.clear()
     }
   }
 
@@ -125,6 +126,7 @@ method resetear() { //Reinicia las estadísticas del Carpincho
     if(items.size() == 3){
       game.schedule(2000, {game.say(self, "Presiona la barra espaciadora para transformarme")})
     }
+    objeto.cambiarPosition()
   }
 }
 

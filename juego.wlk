@@ -4,6 +4,7 @@ import wollok.game.*
 import personajes.*
 import modelos.*
 import menu.*
+import interfaz.*
 
 object juego {
   const property todo = [termo, yerba, donSatur, enemigo, firefly, culebrita, carpincho, boss] 
@@ -13,6 +14,10 @@ object juego {
     menu.gameOver(false)
     game.addVisual(carpincho)
     self.activarMovimientoCarpincho()
+    barraVidaCarpincho.mostrarVida(carpincho.vida())
+    game.addVisual(inventario)
+    game.addVisual(inventario2)
+    game.addVisual(inventario3)
     game.addVisual(termo)
     game.addVisual(yerba)
     game.addVisual(donSatur)
