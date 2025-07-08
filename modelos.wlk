@@ -29,6 +29,7 @@ const boss = new Boss(danioBase = 2, vida = 20, position = game.at(9,6))
 
 const musicaDeBoss = new Musica(nombre = "bossSoundtrack")
 const musicaDeFondo = new Musica(nombre = "MusicaNivel")
+const musicaIntro = new Musica(nombre = "Intro")
 
 // HitBox
 

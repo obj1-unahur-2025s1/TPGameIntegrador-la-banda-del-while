@@ -20,3 +20,5 @@ const musica = game.sound(nombre +".mp3")
         sonando = false
   }
 }
+
+

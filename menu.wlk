@@ -16,6 +16,7 @@ object menu {
     game.addVisual(fondoMenu)
     game.addVisual(botonJugar)
     self.configTeclaInicio()
+    musicaIntro.empezarMusica()
   }
 
   method ocultarMenu() {
@@ -35,6 +36,7 @@ object menu {
     keyboard.enter().onPressDo {
         if (estadoDelJuego == "Menu") {
             self.iniciarJuego()
+            musicaIntro.pararMusica()
         }
     }
   }
