@@ -54,7 +54,6 @@ object menu {
     gameOver = true
     self.resetearJuego()
     self.pararMusica()
-    barraVidaCarpincho.sacar()
     sonido.play()
     game.addVisual(gameOverImagen)
     game.schedule(6000, {sonido.stop() self.mostrarMenu()})
@@ -65,7 +64,6 @@ object menu {
     game.removeTickEvent("movimiento")
     self.resetearJuego()
     self.pararMusica()
-    barraVidaCarpincho.sacar()
     sonido.play()
     game.addVisual(youWinImagen)
     game.schedule(6000, {self.mostrarMenu() sonido.stop()}) 
@@ -76,16 +74,26 @@ object menu {
   }
 
   method resetearJuego() {
+    barraVidaCarpincho.sacar()
     juego.todo().forEach({a => a.resetear()})
     juego.todo().forEach({a => game.removeVisual(a)})
+    yerba.position(game.at(4, 8))
+    termo.position(game.at(17, 10))
+    donSatur.position(game.at(8, 14))
   } 
 }
 
 class Fondo {
   const property position
-  const imagen
+  var imagen
   const index
 
+  method imagen(unaImagen) {
+    imagen = unaImagen
+  }
   method image() = imagen
   method zIndex() = index
+  method resetear() { // polimorfismo
+  }
+  method tipoColision() = "Ninguno" // polimorfismo
 }

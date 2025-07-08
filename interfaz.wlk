@@ -28,7 +28,9 @@ class BarraVida{
         vidaAMostrar.forEach{v=>game.addVisual(v)}
     }
     method sacar() {
-        vidaAMostrar.forEach{v=>game.removeVisual(v) vidaAMostrar.remove(v)}
+        //vidaAMostrar.forEach{v=>game.removeVisual(v) vidaAMostrar.remove(v)}
+        vidaAMostrar.forEach{v=>game.removeVisual(v)}
+        vidaAMostrar.clear()
     }
 }
 
@@ -37,5 +39,6 @@ const barraVidaCarpincho = new BarraVida(position = game.at(0,18), image = "Vida
 class VidaObjt{
     const property image
     const property position
+    method tipoColision() = "Ninguno" // polimorfismo evitar colisiones sin intencion
 }
 

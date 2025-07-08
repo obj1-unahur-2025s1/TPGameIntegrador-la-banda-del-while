@@ -3,7 +3,7 @@ import juego.*
 import personajes.*
 import menu.*
 
-// !!!!!!!!! FALTA: HUD CON VIDA Y OBJETOS, MUSICA EN PANTALLA DE INICIO Y SACAR LOS SAYS
+// !!!!!!!!! FALTA: MUSICA EN PANTALLA DE INICIO
 program JuegoSobreviviente {
 	game.title("La gran aventura del Carpincho")
 	game.cellSize(30)
