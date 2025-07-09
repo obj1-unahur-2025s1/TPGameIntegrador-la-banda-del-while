@@ -35,11 +35,13 @@ object menu {
   method configTeclaInicio() {
     keyboard.enter().onPressDo {
         if (estadoDelJuego == "Menu") {
-            self.iniciarJuego()
+            game.addVisual(fondoInstrucciones)
+            game.schedule(7000, {game.removeVisual(fondoInstrucciones) self.iniciarJuego()})
             musicaIntro.pararMusica()
         }
     }
   }
+  
   method pararMusica(){
     if(musicaDeFondo.sonando()){
       musicaDeFondo.pararMusica()

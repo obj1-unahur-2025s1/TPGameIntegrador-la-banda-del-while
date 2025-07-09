@@ -153,7 +153,7 @@ class Enemigo inherits Personaje { //El enemigo estándar
 class Luciernaga inherits Enemigo { //La luciernaga, una subclase de enemigo que vuela y esquiva
   var contador = 0
   override method resetear(){
-    vida = 14
+    vida = 8
     contador = 0
   }
   override method image() = "luciernaga.png"
@@ -195,6 +195,11 @@ class Culebra inherits Enemigo { //La culebra, una subclase de enemigo que enven
     game.schedule(2100,{self.movimiento(-2, 0)})
     game.schedule(2800,{self.movimiento(0, -2)})
   }
+  override method resetear() {
+    vida = 4
+    venenoActivo = false
+    game.removeTickEvent("movete")
+  }
 }
 
 class Boss inherits Enemigo { //La Radiance, el jefe final, definitivamente no robada de Hollow Knight
@@ -209,7 +214,7 @@ class Boss inherits Enemigo { //La Radiance, el jefe final, definitivamente no r
     }
   }
   override method resetear(){ //Regenera la vida de la Radiance y saca la hitbox
-    vida =  20
+    vida = 20
     noAparecio = true
     juego.hitboxesBoss().forEach({v => game.removeVisual(v)})
   }

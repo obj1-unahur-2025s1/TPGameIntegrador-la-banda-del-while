@@ -4,8 +4,9 @@ import personajes.*
 import sfx.*
 
 //Fondos
-const fondoMenu = new Fondo(position = game.at(0, 0),imagen = "fondomenui.jpg", index = -10)
+const fondoMenu = new Fondo(position = game.at(0, 0),imagen = "menuPrincipal.jpg", index = -10)
 const botonJugar = new Fondo(position = game.at(9, 0),imagen = "botonJugar2.png",index = -10)
+const fondoInstrucciones = new Fondo(position = game.at(0, 0), imagen = "fondoParaInstrucciones2.jpg", index = -10)
 const gameOverImagen = new Fondo(position = game.at(7,6),imagen = "GameOver.png", index = -10)
 const youWinImagen = new Fondo(position = game.at(6,5), imagen = "youWin.png", index = -10)
 const inventario = new Fondo(position = game.at(1,1), imagen = "Inventario5.png", index = -1)
@@ -20,9 +21,9 @@ const termo = new Objeto(nombre = "Termo",  position = game.at(17, 10), frase = 
 const donSatur = new Objeto(nombre = "DonSatur", position = game.at(8, 14), frase = "ricobizcochito", positionInventario = game.at(5,1))
 
 //Enemigos
-const enemigo = new Enemigo(danioBase = 1, vida = 5, position = game.at(17, 2))
-const firefly = new Luciernaga(danioBase = 2, vida = 14, position = game.at(5, 5))
-const culebrita =  new Culebra(danioBase = 3, vida = 5, position = game.at(11,8))
+const enemigo = new Enemigo(danioBase = 2, vida = 5, position = game.at(17, 2))
+const firefly = new Luciernaga(danioBase = 1, vida = 8, position = game.at(5, 5))
+const culebrita =  new Culebra(danioBase = 1, vida = 5, position = game.at(11,8))
 const boss = new Boss(danioBase = 2, vida = 20, position = game.at(9,6))
 
 //Musica
