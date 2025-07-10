@@ -146,14 +146,14 @@ class Enemigo inherits Personaje { //El enemigo estándar
   method danioRecibido() = danioBase //El daño que provoca el jefe
   method image() = imageFile
   method resetear(){ //En un reset, reinicia la vida del jefe
-    vida = 5
+    vida = 8
   }
 }
 
 class Luciernaga inherits Enemigo { //La luciernaga, una subclase de enemigo que vuela y esquiva
   var contador = 0
   override method resetear(){
-    vida = 8
+    vida = 4
     contador = 0
   }
   override method image() = "luciernaga.png"
@@ -205,7 +205,7 @@ class Culebra inherits Enemigo { //La culebra, una subclase de enemigo que enven
     game.schedule(2800,{self.movimiento(0, -2)})
   }
   override method resetear() {
-    vida = 4
+    vida = 5
     venenoActivo = false
     game.removeTickEvent("movete")
   }

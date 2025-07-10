@@ -70,7 +70,7 @@ object menu {
     self.pararMusica()
     sonido.play()
     game.addVisual(youWinImagen)
-    game.schedule(6000, {self.mostrarMenu() sonido.stop()}) 
+    game.schedule(8000, {self.resetearValores() self.mostrarMenu() sonido.stop()}) 
   }
 
   method gameOver(valor) {
@@ -79,12 +79,15 @@ object menu {
 
   method resetearJuego() {
     barraVidaCarpincho.sacar()
-    juego.todo().forEach({a => a.resetear()})
     juego.todo().forEach({a => game.removeVisual(a)})
     yerba.position(game.at(4, 8))
     termo.position(game.at(17, 10))
     donSatur.position(game.at(8, 14))
   } 
+
+  method resetearValores() {
+    juego.todo().forEach({a => a.resetear()})
+  }
 }
 
 class Fondo {
