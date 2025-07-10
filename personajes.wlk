@@ -165,12 +165,14 @@ class Luciernaga inherits Enemigo { //La luciernaga, una subclase de enemigo que
   override method danioRecibido() { //Determina la posibilidad que la luciernaga esquive
     contador += 1
     return 
-    if (contador % 3 == 0) {
+    if (contador == 1) {
     carpincho.decir("esquive")
+    return 0
   } else {
-    danioBase
+    return danioBase
   }
 }
+
   method morir() { //Al morir, detiene el concepto de movimiento de la luciernaga
     if(self.estaMuerto()) {
       game.removeTickEvent("movimiento")
@@ -183,7 +185,14 @@ class Culebra inherits Enemigo { //La culebra, una subclase de enemigo que enven
   override method image() = "culebra.png"
   override method danioRecibido() { //El daño de la culebra 
     venenoActivo = true
-    return danioBase 
+    return 
+    if (venenoActivo) {
+      carpincho.sufrirVeneno()
+      venenoActivo = false
+      return 0
+    } else {
+      return danioBase
+    }
   }
     method movimiento(x, y) { 
       position = position.right(x).down(y)

@@ -3,7 +3,8 @@ import juego.*
 import personajes.*
 import menu.*
 
-// !!!!!!!!! FALTA: MUSICA EN PANTALLA DE INICIO
+// !!!!!!!!! FALTA: MUSICA EN PANTALLA DE INICIO <= Arreglado, solo hay que hacer click en la pantalla de inicio para que empiece la música
+// Si no comienza automáticamente 
 program JuegoSobreviviente {
 	game.title("La gran aventura del Carpincho")
 	game.cellSize(30)

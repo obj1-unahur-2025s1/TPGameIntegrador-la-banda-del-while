@@ -21,8 +21,8 @@ const termo = new Objeto(nombre = "Termo",  position = game.at(17, 10), frase = 
 const donSatur = new Objeto(nombre = "DonSatur", position = game.at(8, 14), frase = "ricobizcochito", positionInventario = game.at(5,1))
 
 //Enemigos
-const enemigo = new Enemigo(danioBase = 2, vida = 5, position = game.at(17, 2))
-const firefly = new Luciernaga(danioBase = 1, vida = 8, position = game.at(5, 5))
+const enemigo = new Enemigo(danioBase = 2, vida = 8, position = game.at(17, 2))
+const firefly = new Luciernaga(danioBase = 1, vida = 4, position = game.at(5, 5))
 const culebrita =  new Culebra(danioBase = 1, vida = 5, position = game.at(11,8))
 const boss = new Boss(danioBase = 2, vida = 20, position = game.at(9,6))
 
