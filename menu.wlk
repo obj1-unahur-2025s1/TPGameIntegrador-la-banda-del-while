@@ -60,7 +60,7 @@ object menu {
     self.pararMusica()
     sonido.play()
     game.addVisual(gameOverImagen)
-    game.schedule(6000, {sonido.stop() self.mostrarMenu()})
+    game.schedule(6000, {self.resetearValores() sonido.stop() self.mostrarMenu()})
   }
 
   method activarFinal() {
